@@ -33,6 +33,23 @@ html,body{height:100%;background:var(--bg);color:#fff;}
 .panel h2{font-size:3.2rem;margin-bottom:.6rem}
 .panel p{font-size:1.15rem;color:var(--muted);max-width:72ch}
 
+.story.horizontal {
+  scroll-snap-type: x mandatory;
+  overflow-x: hidden; /* or auto if you want manual scroll too */
+}
+.panel {
+  scroll-snap-align: start;
+}
+
+.story.horizontal {
+  display: flex;
+  width: 300vw; /* 3 panels side by side */
+}
+.panel {
+  flex: 0 0 100vw;
+}
+
+
 /* EXPERIENCE */
 .experience{padding:8rem 2rem;background:linear-gradient(180deg,#050505,#070707)}
 .section-title{text-align:center;font-size:2.6rem;margin-bottom:2.5rem}
