@@ -1,0 +1,64 @@
+/* Brochure-style, premium dark theme */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#000;
+  --muted:#b8c0cc;
+  --accent:#7c3aed;
+  --glass:rgba(255,255,255,0.02);
+  --maxw:1200px;
+  color-scheme:dark;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+html,body{height:100%;background:var(--bg);color:#fff;}
+
+/* Utilities */
+.container{max-width:var(--maxw);margin:0 auto;padding:2rem}
+
+/* HERO */
+.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1600&q=60');background-size:cover;background-position:center;filter:brightness(0.35) blur(3px);transform:scale(1.12);will-change:transform;transition:transform .8s ease}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 1rem}
+.big-name{font-weight:800;font-size:9vw;line-height:0.9;letter-spacing:-2px}
+.big-name .last{display:block;opacity:.95}
+.tagline{margin-top:18px;font-size:1.1rem;color:var(--muted)}
+
+/* Scroll hint */
+.scroll-down{margin-top:26px;opacity:.9;animation:bounce 2.2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+
+/* HORIZONTAL STORY (panels) */
+.story{height:100vh;display:flex;position:relative;overflow:hidden}
+.panel{flex:0 0 100vw;padding:8rem 6rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem}
+.panel h2{font-size:3.2rem;margin-bottom:.6rem}
+.panel p{font-size:1.15rem;color:var(--muted);max-width:72ch}
+
+/* EXPERIENCE */
+.experience{padding:8rem 2rem;background:linear-gradient(180deg,#050505,#070707)}
+.section-title{text-align:center;font-size:2.6rem;margin-bottom:2.5rem}
+.jobs{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.job-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:2.2rem;border-radius:16px;width:320px;border:1px solid rgba(255,255,255,0.03);transform:translateY(40px);opacity:0;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+.job-card h3{margin-bottom:.4rem}
+.job-card .role{color:var(--muted);margin-bottom:.6rem}
+.line{width:70px;height:3px;background:linear-gradient(90deg,var(--accent),#fff);margin:12px 0;border-radius:2px}
+
+/* HOBBIES */
+.hobbies{padding:6rem 2rem}
+.tiles{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.tile{background:var(--glass);padding:1.2rem 1.6rem;border-radius:14px;border:1px solid rgba(255,255,255,0.03);transform:scale(.88);opacity:0;min-width:220px;text-align:center;font-weight:600;color:var(--muted)}
+
+/* FUN FACTS */
+.funfacts{padding:6rem 2rem;background:linear-gradient(180deg,#06060a,#05050a)}
+.facts{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+.fact-card{background:rgba(255,255,255,0.02);padding:1rem 1.2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-width:200px;text-align:center;transform:rotateY(90deg);opacity:0;backface-visibility:hidden}
+
+/* END / CTA */
+.end{padding:8rem 2rem;text-align:center}
+.cta-button{display:inline-block;margin-top:18px;padding:12px 34px;border-radius:10px;background:#fff;color:#000;text-decoration:none;font-weight:700}
+
+/* responsive */
+@media (max-width:900px){
+  .big-name{font-size:12vw}
+  .panel{padding:4rem 2rem}
+  .jobs{gap:1rem}
+}
