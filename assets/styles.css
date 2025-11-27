@@ -17,7 +17,7 @@ html,body{height:100%;background:var(--bg);color:#fff;}
 
 /* HERO */
 .hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-image:url('assets/Images/Me.JPG');background-size:cover;background-position:center;filter:brightness(0.35) blur(3px);transform:scale(1.12);will-change:transform;transition:transform .8s ease}
+.hero-bg{position:absolute;inset:0;background-image:url('/assets/Images/Me.JPG');background-size:cover;background-position:center;filter:brightness(0.35) blur(3px);transform:scale(1.12);will-change:transform;transition:transform .8s ease}
 .hero-content{position:relative;z-index:2;text-align:center;padding:0 1rem}
 .big-name{font-weight:800;font-size:9vw;line-height:0.9;letter-spacing:-2px}
 .big-name .last{display:block;opacity:.95}
