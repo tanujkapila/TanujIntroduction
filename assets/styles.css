@@ -52,9 +52,13 @@ html,body{height:100%;background:var(--bg);color:#fff;}
 /* PANEL BACKGROUNDS */
 .panel-1 {
     background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby tanuj.jpg');
-    background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+    filter:brightness(0.35) blur(3px);
+    transform:scale(1.12);
+    will-change:transform;
+    transition:transform .8s ease
 }
 
 .panel-2 {
