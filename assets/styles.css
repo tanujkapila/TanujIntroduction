@@ -64,7 +64,7 @@ html,body{height:100%;background:var(--bg);color:#fff;}
     background-size: cover;
     background-position: center;
     filter: brightness(0.35) blur(4px);
-    transform: scale(1.12);
+    /* transform: scale(1.12); */
     z-index: 0; /* VERY IMPORTANT */
 }
 
