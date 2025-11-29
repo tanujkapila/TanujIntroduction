@@ -51,14 +51,26 @@ html,body{height:100%;background:var(--bg);color:#fff;}
 
 /* PANEL BACKGROUNDS */
 .panel-1 {
-    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby tanuj.jpg');
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position:center;
-    filter:brightness(0.35) blur(3px);
-    transform:scale(1.12);
-    will-change:transform;
-    transition:transform .8s ease
+    position: relative;
+    overflow: hidden;
+}
+
+.panel-1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby%20tanuj.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.35) blur(3px);
+    transform: scale(1.12);
+    z-index: 1;
+}
+
+/* Make sure the text stays ABOVE the blur */
+.panel-1 > * {
+    position: relative;
+    z-index: 2;
 }
 
 .panel-2 {
