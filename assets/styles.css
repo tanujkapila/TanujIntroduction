@@ -49,12 +49,13 @@ html,body{height:100%;background:var(--bg);color:#fff;}
   flex: 0 0 100vw;
 }
 
-/* PANEL BACKGROUNDS */
-.panel-1 {
+/* Base panel styling */
+.panel {
     position: relative;
     overflow: hidden;
 }
 
+/* Background layer */
 .panel-1::before {
     content: "";
     position: absolute;
@@ -62,15 +63,16 @@ html,body{height:100%;background:var(--bg);color:#fff;}
     background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby%20tanuj.jpg');
     background-size: cover;
     background-position: center;
-    filter: brightness(0.35) blur(3px);
+    filter: brightness(0.35) blur(4px);
     transform: scale(1.12);
-    z-index: 1;
+    z-index: 0; /* VERY IMPORTANT */
 }
 
-/* Make sure the text stays ABOVE the blur */
-.panel-1 > * {
+/* Put content ABOVE the blur */
+.panel-1 * {
     position: relative;
-    z-index: 2;
+    z-index: 2 !important; /* FORCE TEXT ABOVE */
+    color: white; /* ensure readable */
 }
 
 .panel-2 {
