@@ -70,7 +70,7 @@ html,body{height:100%;background:var(--bg);color:#fff;}
 
 /* Put content ABOVE the blur */
 .panel-1 * {
-    position: relative;
+    position: center;
     z-index: 2 !important; /* FORCE TEXT ABOVE */
     color: white; /* ensure readable */
 }
