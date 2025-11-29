@@ -49,6 +49,27 @@ html,body{height:100%;background:var(--bg);color:#fff;}
   flex: 0 0 100vw;
 }
 
+/* PANEL BACKGROUNDS */
+.panel-1 {
+    background-image: url('IMAGE-URL-1');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.panel-2 {
+    background-image: url('IMAGE-URL-2');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.panel-3 {
+    background-image: url('IMAGE-URL-3');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 /* EXPERIENCE */
 .experience{padding:8rem 2rem;background:linear-gradient(180deg,#050505,#070707)}
