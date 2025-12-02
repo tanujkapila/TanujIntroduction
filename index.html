@@ -1,126 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tanuj Kapila — Brochure</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tanuj Kapila — Brochure</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
 
-<!-- GSAP + ScrollTrigger -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
-<audio id="bg-music" autoplay loop>
-  <source src="https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/songs/IntroSong.mp3" type="audio/mpeg">
-</audio>
-<!-- HERO -->
-<section class="hero">
-<div class="hero-bg" aria-hidden="true"></div>
-<div class="hero-content">
-<h1 class="big-name">TANUJ <span class="last">KAPILA</span></h1>
-<p class="tagline">Data Engineer · Dreamer · Explorer</p>
-<div class="scroll-down" aria-hidden="true">▼ Scroll</div>
-</div>
-</section>
+    <!-- Background Music -->
+    <audio id="bg-music" autoplay loop>
+        <source src="https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/songs/IntroSong.mp3" type="audio/mpeg">
+    </audio>
 
-<!-- HORIZONTAL STORY (Pinned, sideways scroll) -->
-<section class="story horizontal" aria-label="My journey">
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+            <h1 class="big-name">TANUJ <span class="last">KAPILA</span></h1>
+            <p class="tagline">Data Engineer · Dreamer · Explorer</p>
+            <div class="scroll-down" aria-hidden="true">▼ Scroll</div>
+        </div>
+    </section>
 
-<!-- PANEL 1 -->
-<div class="panel panel-1 story-panel">
-<div class="panel-bg" aria-hidden="true"></div>
-<div class="panel-content">
-<h2>Where I Come From</h2>
-<p>My story begins in India. I was born on June 8, 1996, in Gujarat, with roots tracing back to Punjab. I come from a close-knit family of engineers, along with one architect — my mother. My parents have always been my guiding light, and I share this journey with my elder sister, who is happily married. Growing up in such a supportive and creative environment shaped the person I am today, blending curiosity, discipline, and a love for building and exploring.</p>
-</div>
-</div>
+    <!-- HORIZONTAL STORY (Pinned, sideways scroll) -->
+    <section class="story horizontal" aria-label="My journey">
 
-<!-- PANEL 2 -->
-<div class="panel panel-2 story-panel">
-<div class="panel-bg" aria-hidden="true"></div>
-<div class="panel-content">
-<h2>Growing Up</h2>
-<p>Curious, creative, and a little mischievous. Always asking how and why.</p>
-</div>
-</div>
+        <!-- PANEL 1 -->
+        <div class="panel panel-1 story-panel">
+            <div class="panel-bg" aria-hidden="true"></div>
+            <div class="panel-content">
+                <h2>Where I Come From</h2>
+                <p>
+                    My story begins in India. I was born on June 8, 1996, in Gujarat, with roots tracing back to Punjab.
+                    I come from a close-knit family of engineers, along with one architect — my mother. My parents have always been my guiding light,
+                    and I share this journey with my elder sister, who is happily married. Growing up in such a supportive and creative environment
+                    shaped the person I am today, blending curiosity, discipline, and a love for building and exploring.
+                </p>
+            </div>
+        </div>
 
-<!-- PANEL 3 -->
-<div class="panel panel-3 story-panel">
-<div class="panel-bg" aria-hidden="true"></div>
-<div class="panel-content">
-<h2>Education</h2>
-<h3>B.Tech — Computer Science & Engineering</h3>
-<p class="college">ABES Engineering College, Ghaziabad</p>
-<p class="edu-desc">
-These four years built my foundation — algorithms, systems, problem-solving, 
-and the spark that eventually became my obsession with data engineering.
-</p>
-</div>
-</div>
+        <!-- PANEL 2 -->
+        <div class="panel panel-2 story-panel">
+            <div class="panel-bg" aria-hidden="true"></div>
+            <div class="panel-content">
+                <h2>Growing Up</h2>
+                <p>Curious, creative, and a little mischievous. Always asking how and why.</p>
+            </div>
+        </div>
 
-</section>
+        <!-- PANEL 3 -->
+        <div class="panel panel-3 story-panel">
+            <div class="panel-bg" aria-hidden="true"></div>
+            <div class="panel-content">
+                <h2>Education</h2>
+                <h3>B.Tech — Computer Science & Engineering</h3>
+                <p class="college">ABES Engineering College, Ghaziabad</p>
+                <p class="edu-desc">
+                    These four years built my foundation — algorithms, systems, problem-solving,
+                    and the spark that eventually became my obsession with data engineering.
+                </p>
+            </div>
+        </div>
 
-<!-- EXPERIENCE -->
-<section class="experience" id="experience">
-<h2 class="section-title">Work Experience</h2>
-<div class="jobs">
-<div class="job-card">
-<h3>UnitedHealth Group</h3>
-<p class="role">Software Engineer</p>
-<div class="line" aria-hidden="true"></div>
-<p class="desc">May 2024 — Present · Dublin<br>PySpark · R · Data Engineering · Observability</p>
-</div>
+    </section>
 
-<div class="job-card">
-<h3>Optimed (Contract)</h3>
-<p class="role">Data Engineer</p>
-<div class="line" aria-hidden="true"></div>
-<p class="desc">Delivered ETL pipelines, knowledge transfer and production-ready code.</p>
-</div>
-</div>
-</section>
+    <!-- EXPERIENCE -->
+    <section class="experience" id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="jobs">
+            <div class="job-card">
+                <h3>UnitedHealth Group</h3>
+                <p class="role">Software Engineer</p>
+                <div class="line" aria-hidden="true"></div>
+                <p class="desc">May 2024 — Present · Dublin<br>PySpark · R · Data Engineering · Observability</p>
+            </div>
 
-<!-- HOBBIES -->
-<section class="hobbies" id="hobbies">
-<h2 class="section-title">Hobbies</h2>
-<div class="tiles">
-<div class="tile">Travel ✈️ — I love discovering hidden corners</div>
-<div class="tile">Foodie 🍜 — spicy, bold, and experimental</div>
-<div class="tile">Movies & Books 🎬📚 — stories fuel me</div>
-<div class="tile">Video Creator 🎥 — Dublin hidden gems</div>
-</div>
-</section>
+            <div class="job-card">
+                <h3>Optimed (Contract)</h3>
+                <p class="role">Data Engineer</p>
+                <div class="line" aria-hidden="true"></div>
+                <p class="desc">Delivered ETL pipelines, knowledge transfer and production-ready code.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- FUN FACTS -->
-<section class="funfacts" id="funfacts">
-<h2 class="section-title">Fun Facts</h2>
-<div class="facts">
-<div class="fact-card">My flirting? Slightly spicy. 😏</div>
-<div class="fact-card">Solo trip to Barcelona — spontaneous and unforgettable.</div>
-<div class="fact-card">Camera roll: 80% buildings & sunsets.</div>
-<div class="fact-card">I make travel videos — editing is my zen.</div>
-</div>
-</section>
+    <!-- HOBBIES -->
+    <section class="hobbies" id="hobbies">
+        <h2 class="section-title">Hobbies</h2>
+        <div class="tiles">
+            <div class="tile">Travel ✈️ — I love discovering hidden corners</div>
+            <div class="tile">Foodie 🍜 — spicy, bold, and experimental</div>
+            <div class="tile">Movies & Books 🎬📚 — stories fuel me</div>
+            <div class="tile">Video Creator 🎥 — Dublin hidden gems</div>
+        </div>
+    </section>
 
-<!-- INSTAGRAM -->
-<section class="instagram-dynamic" id="instagram">
-<h2 class="section-title">Follow Me on Instagram</h2>
-<p class="tagline">Latest updates from my journey</p>
-<iframe src="https://www.instagram.com/tanujkapila/embed" width="320" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-<a href="https://www.instagram.com/tanujkapila" target="_blank" class="cta-button">Follow Me</a>
-</section>
+    <!-- FUN FACTS -->
+    <section class="funfacts" id="funfacts">
+        <h2 class="section-title">Fun Facts</h2>
+        <div class="facts">
+            <div class="fact-card">My flirting? Slightly spicy. 😏</div>
+            <div class="fact-card">Solo trip to Barcelona — spontaneous and unforgettable.</div>
+            <div class="fact-card">Camera roll: 80% buildings & sunsets.</div>
+            <div class="fact-card">I make travel videos — editing is my zen.</div>
+        </div>
+    </section>
 
-<!-- END / CTA -->
-<section class="end" id="contact">
-<h2>Let’s Build Something Meaningful</h2>
-<p>Work · Collaboration · Coffee · Conversations</p>
-<a class="cta-button" href="mailto:tanuj.kapila@example.com">Contact Me</a>
-</section>
+    <!-- INSTAGRAM -->
+    <section class="instagram-dynamic" id="instagram">
+        <h2 class="section-title">Follow Me on Instagram</h2>
+        <p class="tagline">Latest updates from my journey</p>
+        <iframe src="https://www.instagram.com/tanujkapila/embed" width="320" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+        <a href="https://www.instagram.com/tanujkapila" target="_blank" class="cta-button">Follow Me</a>
+    </section>
 
-<script src="assets/script.js"></script>
+    <!-- END / CTA -->
+    <section class="end" id="contact">
+        <h2>Let’s Build Something Meaningful</h2>
+        <p>Work · Collaboration · Coffee · Conversations</p>
+        <a class="cta-button" href="mailto:tanuj.kapila@example.com">Contact Me</a>
+    </section>
+
+    <script src="assets/script.js"></script>
 </body>
 </html>
