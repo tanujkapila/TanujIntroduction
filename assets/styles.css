@@ -41,12 +41,12 @@ html,body{height:100%;background:var(--bg);color:#fff;}
 .panel-content{
     position:relative;
     z-index:2;
-    max-width:70%;
+    max-width:50%;
     text-align:center;
     background:rgba(0,0,0,0.35);
     padding:2rem 2.8rem;
     border-radius:16px;
-    backdrop-filter:blur(6px);
+    backdrop-filter:blur(3px);
     border:1px solid rgba(255,255,255,0.05);
 }
 
