@@ -11,7 +11,6 @@
 <!-- GSAP + ScrollTrigger -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
 </head>
 
 <body>
@@ -28,20 +27,39 @@
 
 <!-- HORIZONTAL STORY (Pinned, sideways scroll) -->
 <section class="story horizontal" aria-label="My journey">
-    <div class="panel panel-1">
-        <div class="hero-content">
+    
+    <!-- PANEL 1 -->
+    <div class="panel panel-1 story-panel">
+        <div class="panel-bg" aria-hidden="true"></div>
+        <div class="panel-content">
             <h2>Where I Come From</h2>
             <p>My story begins in India. I was born on June 8, 1996, in Gujarat, with roots tracing back to Punjab. I come from a close-knit family of engineers, along with one architect — my mother. My parents have always been my guiding light, and I share this journey with my elder sister, who is happily married. Growing up in such a supportive and creative environment shaped the person I am today, blending curiosity, discipline, and a love for building and exploring.</p>
-        </div>      
+        </div>
     </div>
-    <div class="panel panel-2">
-        <h2>Growing Up</h2>
-        <p>Curious, creative, and a little mischievous. Always asking how and why.</p>
+
+    <!-- PANEL 2 -->
+    <div class="panel panel-2 story-panel">
+        <div class="panel-bg" aria-hidden="true"></div>
+        <div class="panel-content">
+            <h2>Growing Up</h2>
+            <p>Curious, creative, and a little mischievous. Always asking how and why.</p>
+        </div>
     </div>
-    <div class="panel panel-3">
-        <h2>Education</h2>
-        <p>Technical foundations met a love for data — which became my craft.</p>
+
+    <!-- PANEL 3 -->
+    <div class="panel panel-3 story-panel">
+        <div class="panel-bg" aria-hidden="true"></div>
+        <div class="panel-content">
+            <h2>Education</h2>
+            <h3>B.Tech — Computer Science & Engineering</h3>
+            <p class="college">ABES Engineering College, Ghaziabad</p>
+            <p class="edu-desc">
+                These four years built my foundation — algorithms, systems, problem-solving, 
+                and the spark that eventually became my obsession with data engineering.
+            </p>
+        </div>
     </div>
+
 </section>
 
 <!-- EXPERIENCE -->
@@ -86,16 +104,14 @@
     </div>
 </section>
 
+<!-- INSTAGRAM -->
 <section class="instagram-dynamic" id="instagram">
   <h2 class="section-title">Follow Me on Instagram</h2>
   <p class="tagline">Latest updates from my journey</p>
-
-  <!-- Instagram Embed -->
   <iframe src="https://www.instagram.com/tanujkapila/embed" width="320" height="400" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
   <a href="https://www.instagram.com/tanujkapila" target="_blank" class="cta-button">Follow Me</a>
 </section>
 
-    
 <!-- END / CTA -->
 <section class="end" id="contact">
     <h2>Let’s Build Something Meaningful</h2>
@@ -103,7 +119,6 @@
     <a class="cta-button" href="mailto:tanuj.kapila@example.com">Contact Me</a>
 </section>
 
-<!-- Script -->
 <script src="assets/script.js"></script>
 </body>
 </html>
