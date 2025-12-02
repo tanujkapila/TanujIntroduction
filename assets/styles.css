@@ -33,7 +33,7 @@ html,body{height:100%;background:var(--bg);color:#fff;}
 .panel{flex:0 0 100vw;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:4rem}
 .story-panel .panel-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.28) blur(3px);transform:scale(1.12);z-index:0}
 /* Replace these with your own images */
-.panel-1 .panel-bg{background-image:url('YOUR-IMAGE-1.jpg')}
+.panel-1 .panel-bg{background-image:url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/babe tanuj.jpg')}
 .panel-2 .panel-bg{background-image:url('YOUR-IMAGE-2.jpg')}
 .panel-3 .panel-bg{background-image:url('YOUR-IMAGE-3.jpg')}
 
