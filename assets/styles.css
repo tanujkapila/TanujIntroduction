@@ -89,3 +89,41 @@ html,body{height:100%;background:var(--bg);color:#fff;}
   .jobs{gap:1rem}
   .panel-content{max-width:85%}
 }
+
+/* Ensure panel-bg blur works */
+.story-panel .panel-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.28) blur(3px);
+    transform: scale(1.12);
+    z-index: 0;
+}
+
+/* Dark overlay for readability */
+.story-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+
+/* Ensure panel-content is above overlay */
+.panel-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Panel-specific images */
+.panel-1 .panel-bg {
+    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby tanuj.jpg');
+}
+.panel-2 .panel-bg {
+    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growing-up.jpg');
+}
+.panel-3 .panel-bg {
+    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/education.jpg');
+}
+
