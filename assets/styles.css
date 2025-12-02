@@ -27,67 +27,33 @@ html,body{height:100%;background:var(--bg);color:#fff;}
 .scroll-down{margin-top:26px;opacity:.9;animation:bounce 2.2s infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 
-/* HORIZONTAL STORY (panels) */
-.story{height:100vh;display:flex;position:relative;overflow:hidden}
-.panel{flex:0 0 100vw;padding:8rem 6rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem}
-.panel h2{font-size:3.2rem;margin-bottom:.6rem}
-.panel p{font-size:1.15rem;color:var(--muted);max-width:72ch}
+/* HORIZONTAL STORY */
+.story{height:100vh;display:flex;position:relative;overflow:hidden;scroll-snap-type:x mandatory;}
+.story.horizontal {width:300vw;display:flex;}
+.panel{flex:0 0 100vw;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:4rem}
+.story-panel .panel-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.28) blur(3px);transform:scale(1.12);z-index:0}
+/* Replace these with your own images */
+.panel-1 .panel-bg{background-image:url('YOUR-IMAGE-1.jpg')}
+.panel-2 .panel-bg{background-image:url('YOUR-IMAGE-2.jpg')}
+.panel-3 .panel-bg{background-image:url('YOUR-IMAGE-3.jpg')}
 
-.story.horizontal {
-  scroll-snap-type: x mandatory;
-  overflow-x: hidden; /* or auto if you want manual scroll too */
-}
-.panel {
-  scroll-snap-align: start;
-}
-
-.story.horizontal {
-  display: flex;
-  width: 300vw; /* 3 panels side by side */
-}
-.panel {
-  flex: 0 0 100vw;
-}
-
-/* Base panel styling */
-.panel {
-    position: relative;
-    overflow: hidden;
+/* Glass content */
+.panel-content{
+    position:relative;
+    z-index:2;
+    max-width:70%;
+    text-align:center;
+    background:rgba(0,0,0,0.35);
+    padding:2rem 2.8rem;
+    border-radius:16px;
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.05);
 }
 
-/* Background layer */
-.panel-1::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby%20tanuj.jpg');
-    background-size: cover;
-    background-position: top;
-    filter: brightness(0.35) blur(4px);
-    /* transform: scale(1.12); */
-    z-index: 0; /* VERY IMPORTANT */
-}
-
-/* Put content ABOVE the blur */
-.panel-1 * {
-    position: center;
-    z-index: 2 !important; /* FORCE TEXT ABOVE */
-    color: white; /* ensure readable */
-}
-
-.panel-2 {
-    background-image: url('IMAGE-URL-2');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.panel-3 {
-    background-image: url('IMAGE-URL-3');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+.panel-content h2{font-size:3rem;margin-bottom:0.6rem;font-weight:700}
+.panel-content h3{font-size:1.4rem;opacity:0.95;margin-bottom:0.2rem}
+.panel-content .college{font-size:1.1rem;color:var(--muted);margin-bottom:1rem}
+.panel-content p{font-size:1.15rem;color:var(--muted);line-height:1.55}
 
 /* EXPERIENCE */
 .experience{padding:8rem 2rem;background:linear-gradient(180deg,#050505,#070707)}
@@ -108,6 +74,10 @@ html,body{height:100%;background:var(--bg);color:#fff;}
 .facts{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
 .fact-card{background:rgba(255,255,255,0.02);padding:1rem 1.2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-width:200px;text-align:center;transform:rotateY(90deg);opacity:0;backface-visibility:hidden}
 
+/* INSTAGRAM */
+.instagram-dynamic{text-align:center;padding:6rem 2rem}
+.instagram-dynamic iframe{margin:1rem 0}
+
 /* END / CTA */
 .end{padding:8rem 2rem;text-align:center}
 .cta-button{display:inline-block;margin-top:18px;padding:12px 34px;border-radius:10px;background:#fff;color:#000;text-decoration:none;font-weight:700}
@@ -117,4 +87,5 @@ html,body{height:100%;background:var(--bg);color:#fff;}
   .big-name{font-size:12vw}
   .panel{padding:4rem 2rem}
   .jobs{gap:1rem}
+  .panel-content{max-width:85%}
 }
