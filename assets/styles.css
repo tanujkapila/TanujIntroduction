@@ -34,7 +34,7 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .panel-content .college { font-size: 1.1rem; color: var(--muted); margin-bottom: 1rem; }
 .panel-content p { font-size: 1.15rem; color: var(--muted); line-height: 1.55; }
 .panel-1 .panel-bg { background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby.jpg'); }
-.panel-2 .panel-bg { background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growing-up.jpg'); }
+.panel-2 .panel-bg { background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growingup.png'); }
 .panel-3 .panel-bg { background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/education.jpg'); }
 
 /* EXPERIENCE TIMELINE */
