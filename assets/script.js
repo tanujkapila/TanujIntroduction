@@ -87,15 +87,19 @@ document.querySelectorAll(".slider").forEach((slider) => {
     const prevBtn = slider.querySelector(".slide-prev");
     const nextBtn = slider.querySelector(".slide-next");
 
+    // Ensure each slide takes full width
+    items.forEach(item => item.style.minWidth = "100%");
+
     // Clean container and append items
     slidesContainer.innerHTML = "";
-    items.forEach(item => {
-        item.style.minWidth = "100%"; // Ensure each slide takes full width
-        slidesContainer.appendChild(item);
-    });
+    items.forEach(item => slidesContainer.appendChild(item));
+
+    // Clone first slide and append to end
+    const firstClone = items[0].cloneNode(true);
+    slidesContainer.appendChild(firstClone);
 
     let index = 0;
-    const total = items.length;
+    const total = items.length; // original slides count
     let interval;
 
     function updateSlide() {
@@ -105,50 +109,70 @@ document.querySelectorAll(".slider").forEach((slider) => {
 
     function startAutoSlide() {
         interval = setInterval(() => {
-            index = (index + 1) % total; // Loop back to first
+            index++;
             updateSlide();
-        }, 10000); // 10 seconds
+            // If we reach the clone, reset to first
+            if(index > total - 1) {
+                setTimeout(() => {
+                    slidesContainer.style.transition = "none";
+                    index = 0;
+                    slidesContainer.style.transform = `translateX(0%)`;
+                }, 500); // wait for transition to finish
+            }
+        }, 10000); // 10s per slide
     }
 
     function stopAutoSlide() {
         clearInterval(interval);
     }
 
-    // Buttons
     nextBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         stopAutoSlide();
-        index = (index + 1) % total;
+        index++;
         updateSlide();
+        if(index > total - 1) {
+            setTimeout(() => {
+                slidesContainer.style.transition = "none";
+                index = 0;
+                slidesContainer.style.transform = `translateX(0%)`;
+            }, 500);
+        }
         startAutoSlide();
     });
 
     prevBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         stopAutoSlide();
-        index = (index - 1 + total) % total;
-        updateSlide();
+        if(index === 0) {
+            slidesContainer.style.transition = "none";
+            index = total;
+            slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+            setTimeout(() => {
+                slidesContainer.style.transition = "transform 0.5s ease-in-out";
+                index--;
+                updateSlide();
+            }, 20);
+        } else {
+            index--;
+            updateSlide();
+        }
         startAutoSlide();
     });
 
-    // Ensure buttons are visible
-    prevBtn.style.position = "absolute";
-    prevBtn.style.top = "50%";
+    // Fix buttons visibility
+    [prevBtn, nextBtn].forEach(btn => {
+        btn.style.position = "absolute";
+        btn.style.top = "50%";
+        btn.style.transform = "translateY(-50%)";
+        btn.style.zIndex = "10";
+    });
     prevBtn.style.left = "10px";
-    prevBtn.style.transform = "translateY(-50%)";
-    nextBtn.style.position = "absolute";
-    nextBtn.style.top = "50%";
     nextBtn.style.right = "10px";
-    nextBtn.style.transform = "translateY(-50%)";
-    prevBtn.style.zIndex = "10";
-    nextBtn.style.zIndex = "10";
 
     // Start autoplay
     startAutoSlide();
 });
-
-
-
 
 /* ZOOM POPUP */
 function openZoom(item) {
