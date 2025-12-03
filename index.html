@@ -161,23 +161,5 @@
     </section>
 
     <script src="assets/script.js"></script>
-    <script>
-        const audio = document.getElementById("bg-music");
-        // Start muted (Chrome requirement)
-        audio.muted = true;
-        audio.volume = 0.5;
-        // Try autoplay while muted
-        audio.play().then(() => {
-            console.log("Autoplay success while muted.");
-        
-            // Unmute after a delay
-            setTimeout(() => {
-                audio.muted = false;
-            }, 1200);
-        }).catch(err => {
-            console.log("Autoplay blocked:", err);
-        });
-    </script>
-
 </body>
 </html>
