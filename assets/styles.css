@@ -261,20 +261,33 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .zoom-modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.7); /* dark overlay */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 9999;
     cursor: zoom-out;
 }
+
 .zoom-content {
+    transform: scale(1); /* start at normal scale */
+    transition: transform 0.3s ease;
     max-width: 90%;
     max-height: 90%;
-    border-radius: 1rem;
-    object-fit: contain;
-    cursor: default;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    border-radius: 12px;
 }
+
+/* Optional: animate zoom-in */
+.zoom-modal .zoom-content {
+    animation: zoomIn 0.3s ease forwards;
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
 
 
 
