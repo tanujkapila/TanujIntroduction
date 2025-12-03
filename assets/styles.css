@@ -216,15 +216,13 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
     overflow: hidden;
     position: relative;
     border-radius: 1rem;
-
-    width: 100%;            /* ← ensures perfect fit in tile */
+    width: 100%;
     height: 220px;
 }
 
 .slides {
     display: flex;
-    gap: 1rem;
-    transition: transform 0.6s ease;
+    transition: transform 0.5s ease-in-out;
 }
 
 .slides img,
@@ -250,6 +248,7 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
     cursor: pointer;
     z-index: 5;
 }
+
 .slide-prev { left: 10px; }
 .slide-next { right: 10px; }
 
