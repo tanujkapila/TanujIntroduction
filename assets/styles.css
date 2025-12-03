@@ -24,18 +24,94 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
 /* STORY PANELS */
-.story { height: 100vh; display: flex; position: relative; overflow: hidden; scroll-snap-type: x mandatory; }
-.story.horizontal { width: 300vw; display: flex; }
-.panel { flex: 0 0 100vw; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 4rem; }
-.story-panel .panel-bg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: brightness(0.35) blur(3px); transform: scale(1.12); z-index: 0; }
-.panel-content { position: relative; z-index: 2; max-width: 50%; text-align: center; background: rgba(0,0,0,0.35); padding: 2rem 2.8rem; border-radius: 16px; backdrop-filter: blur(3px); border: 1px solid rgba(255,255,255,0.05); }
-.panel-content h2 { font-size: 3rem; margin-bottom: 0.6rem; font-weight: 700; }
-.panel-content h3 { font-size: 1.4rem; opacity: 0.95; margin-bottom: 0.2rem; }
-.panel-content .college { font-size: 1.1rem; color: var(--muted); margin-bottom: 1rem; }
-.panel-content p { font-size: 1.15rem; color: var(--muted); line-height: 1.55; }
-.panel-1 .panel-bg { background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby.jpg'); }
-.panel-2 .panel-bg { background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growingup.png'); }
-.panel-3 .panel-bg { background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/education.jpg'); }
+.story {
+    height: 100vh;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+}
+
+.story.horizontal {
+    width: 300vw;
+    display: flex;
+}
+
+.panel {
+    flex: 0 0 100vw;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    align-items: flex-end; /* content goes to bottom */
+    justify-content: center;
+}
+
+/* Same styling as HERO background */
+.story-panel .panel-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.35) blur(3px);
+    transform: scale(1.12);
+    will-change: transform;
+    transition: transform .8s ease;
+    z-index: 0;
+}
+
+/* Bottom-aligned content */
+.panel-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+
+    background: rgba(0,0,0,0.40);
+    padding: 2rem;
+    margin-bottom: 3rem;   /* distance from the bottom */
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    text-align: center;
+}
+
+/* Typography */
+.panel-content h2 {
+    font-size: 3rem;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+}
+
+.panel-content h3 {
+    font-size: 1.4rem;
+    opacity: 0.95;
+    margin-bottom: 0.2rem;
+}
+
+.panel-content .college {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.panel-content p {
+    font-size: 1.15rem;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+/* Panel Background Images */
+.panel-1 .panel-bg {
+    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby.jpg');
+}
+.panel-2 .panel-bg {
+    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growingup.png');
+}
+.panel-3 .panel-bg {
+    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/education.jpg');
+}
 
 /* EXPERIENCE TIMELINE */
 .experience { position: relative; padding: 8rem 2rem; overflow: hidden; }
