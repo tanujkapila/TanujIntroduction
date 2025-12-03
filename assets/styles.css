@@ -1,3 +1,4 @@
+
 /* Premium Dark Theme - Synced Across All Sections */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -23,94 +24,96 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .scroll-down { margin-top: 26px; opacity: .9; animation: bounce 2.2s infinite; }
 @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
-/* STORY PANELS */
+/* STORY PANELS (patched) */
 .story {
-    height: 100vh;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    scroll-snap-type: x mandatory;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  /* GSAP drives horizontal movement; native scroll-snap not needed here */
+  /* scroll-snap-type: x mandatory; */ /* removed */
 }
 
-.story.horizontal {
-    width: 300vw;
-    display: flex;
+/* Removed: .story.horizontal { width: 300vw; display: flex; } */
+.story.horizontal .panels {
+  display: flex;
+  height: 100%;
 }
 
 .panel {
-    flex: 0 0 100vw;
-    position: relative;
-    overflow: hidden;
-    padding: 0;
-    display: flex;
-    align-items: flex-end; /* content goes to bottom */
-    justify-content: center;
+  flex: 0 0 100vw;  /* each panel exactly 1 viewport wide */
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  align-items: flex-end; /* content goes to bottom */
+  justify-content: center;
 }
 
 /* Same styling as HERO background */
 .story-panel .panel-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.35);
-    transform: scale(1.12);
-    will-change: transform;
-    transition: transform .8s ease;
-    z-index: 0;
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.35);
+  transform: scale(1.12);
+  will-change: transform;
+  transition: transform .8s ease;
+  z-index: 0;
 }
 
 /* Bottom-aligned content */
 .panel-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 700px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 700px;
 
-    background: rgba(0,0,0,0.40);
-    padding: 2rem;
-    margin-bottom: 3rem;   /* distance from the bottom */
-    border-radius: 16px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.40);
+  padding: 2rem;
+  margin-bottom: 3rem;   /* distance from the bottom */
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.08);
 
-    text-align: center;
+  text-align: center;
 }
 
 /* Typography */
 .panel-content h2 {
-    font-size: 3rem;
-    margin-bottom: 0.6rem;
-    font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
 }
 
 .panel-content h3 {
-    font-size: 1.4rem;
-    opacity: 0.95;
-    margin-bottom: 0.2rem;
+  font-size: 1.4rem;
+  opacity: 0.95;
+  margin-bottom: 0.2rem;
 }
 
 .panel-content .college {
-    font-size: 1.1rem;
-    color: var(--muted);
-    margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
 }
 
 .panel-content p {
-    font-size: 1.15rem;
-    color: var(--muted);
-    line-height: 1.55;
+  font-size: 1.15rem;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 /* Panel Background Images */
 .panel-1 .panel-bg {
-    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby.jpg');
+  background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby.jpg');
 }
 .panel-2 .panel-bg {
-    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growingup.png');
+  background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growingup.png');
 }
 .panel-3 .panel-bg {
-    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/2.jpg');
+  background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/2.jpg');
 }
 
 /* EXPERIENCE TIMELINE */
