@@ -81,14 +81,71 @@ ScrollTrigger.create({
   }
 });
 
+
+
 document.querySelectorAll(".slider").forEach((slider) => {
     const slides = slider.querySelector(".slides");
     const items = slides.children;
-    let index = 0;
+    const prevBtn = slider.querySelector(".slide-prev");
+    const nextBtn = slider.querySelector(".slide-next");
 
-    setInterval(() => {
-        index = (index + 1) % items.length;
+    let index = 0;
+    let interval;
+
+    function updateSlide() {
         slides.style.transform = `translateX(-${index * 100}%)`;
-    }, 2500);
+    }
+
+    function startAutoSlide() {
+        interval = setInterval(() => {
+            index = (index + 1) % items.length;
+            updateSlide();
+        }, 2500);
+    }
+
+    function resetAutoSlide() {
+        clearInterval(interval);
+        startAutoSlide();
+    }
+
+    // Buttons
+    nextBtn.addEventListener("click", () => {
+        index = (index + 1) % items.length;
+        updateSlide();
+        resetAutoSlide();
+    });
+
+    prevBtn.addEventListener("click", () => {
+        index = (index - 1 + items.length) % items.length;
+        updateSlide();
+        resetAutoSlide();
+    });
+
+    // CLICK TO ZOOM
+    Array.from(items).forEach((item) => {
+        item.addEventListener("click", () => {
+            openZoom(item);
+        });
+    });
+
+    startAutoSlide();
 });
+
+/* ZOOM POPUP */
+function openZoom(item) {
+    const modal = document.createElement("div");
+    modal.className = "zoom-modal";
+
+    const clone = item.cloneNode(true);
+    clone.classList.add("zoom-content");
+
+    modal.appendChild(clone);
+
+    modal.addEventListener("click", () => {
+        modal.remove();
+    });
+
+    document.body.appendChild(modal);
+}
+
 
