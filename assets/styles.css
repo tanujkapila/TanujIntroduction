@@ -49,6 +49,69 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .job-card .role { color: var(--muted); margin-bottom: .6rem; }
 .line { width: 70px; height: 3px; background: linear-gradient(90deg,var(--accent),#fff); margin: 12px 0; border-radius: 2px; }
 
+
+/* TIMELINE STRUCTURE */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), #fff);
+  transform: translateX(-50%);
+}
+.timeline-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+  z-index: 2;
+}
+.timeline-content {
+  position: relative;
+  width: 45%;
+  padding: 1.6rem;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(3px);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-left: auto;
+  text-align: left;
+}
+.timeline-item:nth-child(even) .timeline-content {
+  margin-right: auto;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline-line { left: 8px; }
+  .timeline-dot { left: 8px; transform: none; }
+  .timeline-content { width: calc(100% - 40px); margin: 0 0 0 40px; text-align: left  .timeline-content { width: calc(100% - 40px); margin: 0 0 0 40px; text-align: left; }
+
+
 /* HOBBIES */
 .hobbies { position: relative; padding: 6rem 2rem; overflow: hidden; }
 .hobbies::before { content: ''; position: absolute; inset: 0; background: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/hobbies-bg.jpg') center/cover no-repeat; filter: brightness(0.35) blur(3px); transform: scale(1.12); z-index: 0; }
