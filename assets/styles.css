@@ -119,6 +119,18 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .experience > * { position: relative; z-index: 2; }
 .section-title { text-align: center; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 2.5rem; }
 
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.35) blur(3px);
+    z-index: 0;
+}
+
 .timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 2rem 0; }
 .timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--accent), #fff); transform: translateX(-50%); }
 .timeline-items { display: flex; flex-direction: column; gap: 4rem; }
