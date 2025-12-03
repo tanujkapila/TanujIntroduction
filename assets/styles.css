@@ -162,23 +162,71 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 }
 
 /* HOBBIES */
-.hobbies { position: relative; padding: 6rem 2rem; overflow: hidden; }
-.hobbies::before { content: ''; position: absolute; inset: 0; background: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/hobbies-bg.jpg') center/cover no-repeat; filter: brightness(0.35) blur(3px); transform: scale(1.12); z-index: 0; }
+.hobbies { 
+    position: relative; 
+    padding: 6rem 2rem; 
+    overflow: hidden; 
+}
+.hobbies::before { 
+    content: ''; 
+    position: absolute; 
+    inset: 0; 
+    background: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/hobbies-bg.jpg') 
+        center/cover no-repeat; 
+    filter: brightness(0.35) blur(3px); 
+    transform: scale(1.12); 
+    z-index: 0; 
+}
 .hobbies > * { position: relative; z-index: 2; }
-.tiles { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-.tile { background: rgba(0,0,0,0.35); backdrop-filter: blur(3px); padding: 1.2rem 1.6rem; border-radius: 14px; border: 1px solid rgba(255,255,255,0.05); min-width: 220px; text-align: center; font-weight: 600; color: var(--muted); opacity: 0; transform: scale(.88); transition: opacity .8s ease, transform .8s ease; }
+
+.tiles { 
+    display: flex; 
+    gap: 20px; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+
+/* TILE + SLIDER FIT FIX */
+.tile { 
+    background: rgba(0,0,0,0.35); 
+    backdrop-filter: blur(3px); 
+    padding: 1.2rem 1.6rem; 
+    border-radius: 14px; 
+    border: 1px solid rgba(255,255,255,0.05); 
+    min-width: 260px;
+    max-width: 320px;       /* ← keeps tile size perfect */
+    width: 100%;            /* ← slider fits perfectly */
+    
+    text-align: center; 
+    font-weight: 600; 
+    color: var(--muted);
+
+    display: flex;          /* ← so title + slider stack */
+    flex-direction: column;
+    gap: 1rem;
+
+    opacity: 0; 
+    transform: scale(.88); 
+    transition: opacity .8s ease, transform .8s ease; 
+}
 .tile.visible { opacity: 1; transform: scale(1); }
 
+/* SLIDER */
 .slider {
     overflow: hidden;
     position: relative;
     border-radius: 1rem;
+
+    width: 100%;            /* ← ensures perfect fit in tile */
+    height: 220px;
 }
+
 .slides {
     display: flex;
     gap: 1rem;
     transition: transform 0.4s ease;
 }
+
 .slides img,
 .slides video {
     width: 100%;
@@ -186,6 +234,7 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
     object-fit: cover;
     border-radius: 1rem;
 }
+
 
 
 /* FUN FACTS */
