@@ -81,41 +81,44 @@ ScrollTrigger.create({
   }
 });
 
-
-
 document.querySelectorAll(".slider").forEach((slider) => {
-    const slides = slider.querySelector(".slides");
-    const items = Array.from(slides.children).filter(item => item.tagName !== "SPAN"); 
+    const slidesContainer = slider.querySelector(".slides");
+    const items = Array.from(slidesContainer.children).filter(item => item.tagName !== "SPAN");
     const prevBtn = slider.querySelector(".slide-prev");
     const nextBtn = slider.querySelector(".slide-next");
 
-    // Fix: Remove empty nodes or text nodes
-    slides.innerHTML = "";
-    items.forEach(item => slides.appendChild(item));
+    // Clean container and append items
+    slidesContainer.innerHTML = "";
+    items.forEach(item => {
+        item.style.minWidth = "100%"; // Ensure each slide takes full width
+        slidesContainer.appendChild(item);
+    });
 
     let index = 0;
-    const maxIndex = items.length - 1;
+    const total = items.length;
     let interval;
 
     function updateSlide() {
-        slides.style.transform = `translateX(-${index * 100}%)`;
+        slidesContainer.style.transition = "transform 0.5s ease-in-out";
+        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
     }
 
     function startAutoSlide() {
         interval = setInterval(() => {
-            index = index === maxIndex ? 0 : index + 1;
+            index = (index + 1) % total; // Loop back to first
             updateSlide();
-        }, 10000);  // ✅ 10 seconds
+        }, 10000); // 10 seconds
     }
 
     function stopAutoSlide() {
         clearInterval(interval);
     }
 
+    // Buttons
     nextBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         stopAutoSlide();
-        index = index === maxIndex ? 0 : index + 1;
+        index = (index + 1) % total;
         updateSlide();
         startAutoSlide();
     });
@@ -123,14 +126,27 @@ document.querySelectorAll(".slider").forEach((slider) => {
     prevBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         stopAutoSlide();
-        index = index === 0 ? maxIndex : index - 1;
+        index = (index - 1 + total) % total;
         updateSlide();
         startAutoSlide();
     });
 
+    // Ensure buttons are visible
+    prevBtn.style.position = "absolute";
+    prevBtn.style.top = "50%";
+    prevBtn.style.left = "10px";
+    prevBtn.style.transform = "translateY(-50%)";
+    nextBtn.style.position = "absolute";
+    nextBtn.style.top = "50%";
+    nextBtn.style.right = "10px";
+    nextBtn.style.transform = "translateY(-50%)";
+    prevBtn.style.zIndex = "10";
+    nextBtn.style.zIndex = "10";
+
     // Start autoplay
     startAutoSlide();
 });
+
 
 
 
