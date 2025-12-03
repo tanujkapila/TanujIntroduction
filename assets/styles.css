@@ -235,6 +235,49 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
     border-radius: 1rem;
 }
 
+.slide-prev,
+.slide-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 5;
+}
+.slide-prev { left: 10px; }
+.slide-next { right: 10px; }
+
+.slide-prev:hover,
+.slide-next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+/* ZOOM MODAL */
+.zoom-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    cursor: zoom-out;
+}
+.zoom-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 1rem;
+    object-fit: contain;
+    cursor: default;
+}
+
+
+
 
 
 /* FUN FACTS */
