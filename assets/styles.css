@@ -112,6 +112,16 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .panel-3 .panel-bg {
     background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/2.jpg');
 }
+.badge-img {
+    width: 40px;      /* size of the badge */
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%; /* make it circular */
+    margin-bottom: 0.5rem;
+    border: 2px solid #fff; /* optional border */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* subtle shadow */
+}
+
 
 /* EXPERIENCE TIMELINE */
 .experience { position: relative; padding: 8rem 2rem; overflow: hidden; }
