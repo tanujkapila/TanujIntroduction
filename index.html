@@ -161,20 +161,23 @@
 
     <script src="assets/script.js"></script>
     <script>
-        const audio = document.getElementById('bg-music');
-        const btn = document.getElementById('play-music-btn');
+        const audio = document.getElementById("bg-music");
         
+        // Step 1 — Start muted (required by Chrome)
+        audio.muted = true;
         audio.volume = 0.5;
         
-        // Try autoplay
+        // Step 2 — Try autoplay while muted
         audio.play().then(() => {
-          btn.style.display = "none";
-        }).catch(() => {
-          // If autoplay fails, user must click
-          btn.addEventListener("click", () => {
-            audio.play();
-            btn.style.display = "none";
-          });
+            console.log("Autoplay success while muted.");
+        
+            // Step 3 — Unmute after a short delay
+            setTimeout(() => {
+                audio.muted = false;
+            }, 1200);
+        
+        }).catch(err => {
+            console.log("Autoplay blocked:", err);
         });
     </script>
 </body>
