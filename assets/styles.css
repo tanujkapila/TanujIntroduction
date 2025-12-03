@@ -1,129 +1,83 @@
-/* Brochure-style, premium dark theme */
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#000;
-  --muted:#b8c0cc;
-  --accent:#7c3aed;
-  --glass:rgba(255,255,255,0.02);
-  --maxw:1200px;
-  color-scheme:dark;
+/* Premium Dark Theme - Synced Across All Sections */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #000;
+  --muted: #b8c0cc;
+  --accent: #7c3aed;
+  --glass: rgba(255,255,255,0.02);
+  --maxw: 1200px;
+  color-scheme: dark;
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
-html,body{height:100%;background:var(--bg);color:#fff;}
-
-/* Utilities */
-.container{max-width:var(--maxw);margin:0 auto;padding:2rem}
+html, body { height: 100%; background: var(--bg); color: #fff; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 2rem; }
 
 /* HERO */
-.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-image:url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/Me.JPG');background-size:cover;background-position:center;filter:brightness(0.35) blur(3px);transform:scale(1.12);will-change:transform;transition:transform .8s ease}
-.hero-content{position:relative;z-index:2;text-align:center;padding:0 1rem}
-.big-name{font-weight:800;font-size:9vw;line-height:0.9;letter-spacing:-2px}
-.big-name .last{display:block;opacity:.95}
-.tagline{margin-top:18px;font-size:1.1rem;color:var(--muted)}
+.hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/Me.JPG'); background-size: cover; background-position: center; filter: brightness(0.35) blur(3px); transform: scale(1.12); will-change: transform; transition: transform .8s ease; }
+.hero-content { position: relative; z-index: 2; text-align: center; padding: 0 1rem; }
+.big-name { font-weight: 800; font-size: 9vw; line-height: 0.9; letter-spacing: -2px; }
+.big-name .last { display: block; opacity: .95; }
+.tagline { margin-top: 18px; font-size: 1.1rem; color: var(--muted); }
+.scroll-down { margin-top: 26px; opacity: .9; animation: bounce 2.2s infinite; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
-/* Scroll hint */
-.scroll-down{margin-top:26px;opacity:.9;animation:bounce 2.2s infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
-
-/* HORIZONTAL STORY */
-.story{height:100vh;display:flex;position:relative;overflow:hidden;scroll-snap-type:x mandatory;}
-.story.horizontal {width:300vw;display:flex;}
-.panel{flex:0 0 100vw;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:4rem}
-.story-panel .panel-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.35) blur(3px);transform:scale(1.12);z-index:0}
-/* Replace these with your own images */
-.panel-1 .panel-bg{background-image:url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby tanuj.jpg')}
-.panel-2 .panel-bg{background-image:url('YOUR-IMAGE-2.jpg')}
-.panel-3 .panel-bg{background-image:url('YOUR-IMAGE-3.jpg')}
-
-/* Glass content */
-.panel-content{
-    position:relative;
-    z-index:2;
-    max-width:50%;
-    text-align:center;
-    background:rgba(0,0,0,0.35);
-    padding:2rem 2.8rem;
-    border-radius:16px;
-    backdrop-filter:blur(3px);
-    border:1px solid rgba(255,255,255,0.05);
-}
-
-.panel-content h2{font-size:3rem;margin-bottom:0.6rem;font-weight:700}
-.panel-content h3{font-size:1.4rem;opacity:0.95;margin-bottom:0.2rem}
-.panel-content .college{font-size:1.1rem;color:var(--muted);margin-bottom:1rem}
-.panel-content p{font-size:1.15rem;color:var(--muted);line-height:1.55}
+/* STORY PANELS */
+.story { height: 100vh; display: flex; position: relative; overflow: hidden; scroll-snap-type: x mandatory; }
+.story.horizontal { width: 300vw; display: flex; }
+.panel { flex: 0 0 100vw; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 4rem; }
+.story-panel .panel-bg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: brightness(0.35) blur(3px); transform: scale(1.12); z-index: 0; }
+.panel-content { position: relative; z-index: 2; max-width: 50%; text-align: center; background: rgba(0,0,0,0.35); padding: 2rem 2.8rem; border-radius: 16px; backdrop-filter: blur(3px); border: 1px solid rgba(255,255,255,0.05); }
+.panel-content h2 { font-size: 3rem; margin-bottom: 0.6rem; font-weight: 700; }
+.panel-content h3 { font-size: 1.4rem; opacity: 0.95; margin-bottom: 0.2rem; }
+.panel-content .college { font-size: 1.1rem; color: var(--muted); margin-bottom: 1rem; }
+.panel-content p { font-size: 1.15rem; color: var(--muted); line-height: 1.55; }
+.panel-1 .panel-bg { background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby tanuj.jpg'); }
+.panel-2 .panel-bg { background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growing-up.jpg'); }
+.panel-3 .panel-bg { background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/education.jpg'); }
 
 /* EXPERIENCE */
-.experience{padding:8rem 2rem;background:linear-gradient(180deg,#050505,#070707)}
-.section-title{text-align:center;font-size:2.6rem;margin-bottom:2.5rem}
-.jobs{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
-.job-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:2.2rem;border-radius:16px;width:320px;border:1px solid rgba(255,255,255,0.03);transform:translateY(40px);opacity:0;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
-.job-card h3{margin-bottom:.4rem}
-.job-card .role{color:var(--muted);margin-bottom:.6rem}
-.line{width:70px;height:3px;background:linear-gradient(90deg,var(--accent),#fff);margin:12px 0;border-radius:2px}
+.experience { position: relative; padding: 8rem 2rem; overflow: hidden; }
+.experience::before { content: ''; position: absolute; inset: 0; background: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/experience-bg.jpg') center/cover no-repeat; filter: brightness(0.35) blur(3px); transform: scale(1.12); z-index: 0; }
+.experience > * { position: relative; z-index: 2; }
+.section-title { text-align: center; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 2.5rem; }
+.jobs { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+.job-card { background: rgba(0,0,0,0.35); backdrop-filter: blur(3px); padding: 2.2rem; border-radius: 16px; width: 320px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.6); color: var(--muted); opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+.job-card.visible { opacity: 1; transform: translateY(0); }
+.job-card h3 { margin-bottom: .4rem; color: #fff; }
+.job-card .role { color: var(--muted); margin-bottom: .6rem; }
+.line { width: 70px; height: 3px; background: linear-gradient(90deg,var(--accent),#fff); margin: 12px 0; border-radius: 2px; }
 
 /* HOBBIES */
-.hobbies{padding:6rem 2rem}
-.tiles{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
-.tile{background:var(--glass);padding:1.2rem 1.6rem;border-radius:14px;border:1px solid rgba(255,255,255,0.03);transform:scale(.88);opacity:0;min-width:220px;text-align:center;font-weight:600;color:var(--muted)}
+.hobbies { position: relative; padding: 6rem 2rem; overflow: hidden; }
+.hobbies::before { content: ''; position: absolute; inset: 0; background: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/hobbies-bg.jpg') center/cover no-repeat; filter: brightness(0.35) blur(3px); transform: scale(1.12); z-index: 0; }
+.hobbies > * { position: relative; z-index: 2; }
+.tiles { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.tile { background: rgba(0,0,0,0.35); backdrop-filter: blur(3px); padding: 1.2rem 1.6rem; border-radius: 14px; border: 1px solid rgba(255,255,255,0.05); min-width: 220px; text-align: center; font-weight: 600; color: var(--muted); opacity: 0; transform: scale(.88); transition: opacity .8s ease, transform .8s ease; }
+.tile.visible { opacity: 1; transform: scale(1); }
 
 /* FUN FACTS */
-.funfacts{padding:6rem 2rem;background:linear-gradient(180deg,#06060a,#05050a)}
-.facts{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
-.fact-card{background:rgba(255,255,255,0.02);padding:1rem 1.2rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-width:200px;text-align:center;transform:rotateY(90deg);opacity:0;backface-visibility:hidden}
+.funfacts { position: relative; padding: 6rem 2rem; overflow: hidden; }
+.funfacts::before { content: ''; position: absolute; inset: 0; background: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/funfacts-bg.jpg') center/cover no-repeat; filter: brightness(0.35) blur(3px); transform: scale(1.12); z-index: 0; }
+.funfacts > * { position: relative; z-index: 2; }
+.facts { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+.fact-card { background: rgba(0,0,0,0.35); backdrop-filter: blur(3px); padding: 1rem 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); min-width: 200px; text-align: center; color: var(--muted); opacity: 0; transform: rotateY(90deg); transition: opacity .8s ease, transform .8s ease; backface-visibility: hidden; }
+.fact-card.visible { opacity: 1; transform: rotateY(0); }
 
 /* INSTAGRAM */
-.instagram-dynamic{text-align:center;padding:6rem 2rem}
-.instagram-dynamic iframe{margin:1rem 0}
+.instagram-dynamic { text-align: center; padding: 6rem 2rem; }
+.instagram-dynamic iframe { margin: 1rem 0; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
 
-/* END / CTA */
-.end{padding:8rem 2rem;text-align:center}
-.cta-button{display:inline-block;margin-top:18px;padding:12px 34px;border-radius:10px;background:#fff;color:#000;text-decoration:none;font-weight:700}
+/* CTA */
+.end { padding: 8rem 2rem; text-align: center; }
+.cta-button { display: inline-block; margin-top: 18px; padding: 12px 34px; border-radius: 10px; background: #fff; color: #000; text-decoration: none; font-weight: 700; transition: background .3s ease, color .3s ease; }
+.cta-button:hover { background: var(--accent); color: #fff; }
 
-/* responsive */
-@media (max-width:900px){
-  .big-name{font-size:12vw}
-  .panel{padding:4rem 2rem}
-  .jobs{gap:1rem}
-  .panel-content{max-width:85%}
+/* Responsive */
+@media (max-width: 900px) {
+  .big-name { font-size: 12vw; }
+  .panel { padding: 4rem 2rem; }
+  .jobs { gap: 1rem; }
+  .panel-content { max-width: 85%; }
 }
-
-/* Ensure panel-bg blur works */
-.story-panel .panel-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.35) blur(3px);
-    transform: scale(1.12);
-    z-index: 0;
-}
-
-/* Dark overlay for readability */
-.story-panel::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0);
-    z-index: 1;
-}
-
-/* Ensure panel-content is above overlay */
-.panel-content {
-    position: relative;
-    z-index: 2;
-}
-
-/* Panel-specific images */
-.panel-1 .panel-bg {
-    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby tanuj.jpg');
-}
-.panel-2 .panel-bg {
-    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growing-up.jpg');
-}
-.panel-3 .panel-bg {
-    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/education.jpg');
-}
-
