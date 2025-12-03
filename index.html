@@ -15,9 +15,22 @@
 
 <body>
     <!-- Background Music -->
-    <audio id="bg-music" autoplay loop>
-        <source src="assets/songs/IntroSong.mp3" type="audio/mpeg">
+    <audio id="bg-music" loop>
+      <source src="https://ia601605.us.archive.org/34/items/02-shoot-to-thrill_202303/06%20-%20Back%20In%20Black.mp3" type="audio/mpeg">
     </audio>
+    <button id="play-music-btn" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background:#111;
+    color:#fff;
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    z-index:9999;">▶ Play Music
+    </button>
 
     <!-- HERO -->
     <section class="hero">
@@ -147,5 +160,22 @@
     </section>
 
     <script src="assets/script.js"></script>
+    <script>
+        const audio = document.getElementById('bg-music');
+        const btn = document.getElementById('play-music-btn');
+        
+        audio.volume = 0.5;
+        
+        // Try autoplay
+        audio.play().then(() => {
+          btn.style.display = "none";
+        }).catch(() => {
+          // If autoplay fails, user must click
+          btn.addEventListener("click", () => {
+            audio.play();
+            btn.style.display = "none";
+          });
+        });
+    </script>
 </body>
 </html>
