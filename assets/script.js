@@ -1,14 +1,13 @@
 const audio = document.getElementById("bg-music");
-        // Start muted (Chrome requirement)
-audio.muted = true;
 audio.volume = 0.5;
-        // Try autoplay while muted
-audio.play().then(() => {
-console.log("Autoplay success while muted.");
-setTimeout(() => {audio.muted = false;}, 1200);
-}).catch(err => {
-            console.log("Autoplay blocked:", err);
-});
+// Optional: try autoplay muted
+audio.play().catch(err => console.log("Autoplay blocked:", err));
+// Listen for user click to unmute & play
+document.addEventListener("click", () => {
+    audio.muted = false;
+    audio.play().then(() => console.log("Music playing!"));
+}, { once: true }); // only first click
+
 
 // GSAP animations with ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
