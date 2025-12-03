@@ -115,7 +115,7 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 
 /* EXPERIENCE TIMELINE */
 .experience { position: relative; padding: 8rem 2rem; overflow: hidden; }
-.experience::before { content: ''; position: absolute; inset: 0; background: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/IMG_6945.MOV') center/cover repeat; filter: brightness(0.35) blur(3px); transform: scale(1.12); z-index: 0; }
+.experience::before { content: ''; position: absolute; inset: 0; background: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/IMG_6945.MOV') center/cover repeat; filter: brightness(0.35); z-index: 0; }
 .experience > * { position: relative; z-index: 2; }
 .section-title { text-align: center; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 2.5rem; }
 
