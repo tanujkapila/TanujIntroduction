@@ -1,14 +1,13 @@
-
 /* Premium Dark Theme - Synced Across All Sections */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg: #000;
-  --muted: #b8c0cc;
-  --accent: #7c3aed;
-  --glass: rgba(255,255,255,0.02);
-  --maxw: 1200px;
-  color-scheme: dark;
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+--bg: #000;
+--muted: #b8c0cc;
+--accent: #7c3aed;
+--glass: rgba(255,255,255,0.02);
+--maxw: 1200px;
+color-scheme: dark;
+font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
 html, body { height: 100%; background: var(--bg); color: #fff; }
@@ -24,96 +23,94 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .scroll-down { margin-top: 26px; opacity: .9; animation: bounce 2.2s infinite; }
 @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
 
-/* STORY PANELS (patched) */
+/* STORY PANELS */
 .story {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  /* GSAP drives horizontal movement; native scroll-snap not needed here */
-  /* scroll-snap-type: x mandatory; */ /* removed */
+height: 100vh;
+display: flex;
+position: relative;
+overflow: hidden;
+scroll-snap-type: x mandatory;
 }
 
-/* Removed: .story.horizontal { width: 300vw; display: flex; } */
-.story.horizontal .panels {
-  display: flex;
-  height: 100%;
+.story.horizontal {
+width: 300vw;
+display: flex;
 }
 
 .panel {
-  flex: 0 0 100vw;  /* each panel exactly 1 viewport wide */
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  display: flex;
-  align-items: flex-end; /* content goes to bottom */
-  justify-content: center;
+flex: 0 0 100vw;
+position: relative;
+overflow: hidden;
+padding: 0;
+display: flex;
+align-items: flex-end; /* content goes to bottom */
+justify-content: center;
 }
 
 /* Same styling as HERO background */
 .story-panel .panel-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.35);
-  transform: scale(1.12);
-  will-change: transform;
-  transition: transform .8s ease;
-  z-index: 0;
+position: absolute;
+inset: 0;
+background-size: cover;
+background-position: center;
+filter: brightness(0.35);
+transform: scale(1.12);
+will-change: transform;
+transition: transform .8s ease;
+z-index: 0;
 }
 
 /* Bottom-aligned content */
 .panel-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 700px;
+position: relative;
+z-index: 2;
+width: 100%;
+max-width: 700px;
 
-  background: rgba(0,0,0,0.40);
-  padding: 2rem;
-  margin-bottom: 3rem;   /* distance from the bottom */
-  border-radius: 16px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255,255,255,0.08);
+background: rgba(0,0,0,0.40);
+padding: 2rem;
+margin-bottom: 3rem;   /* distance from the bottom */
+border-radius: 16px;
+backdrop-filter: blur(5px);
+border: 1px solid rgba(255,255,255,0.08);
 
-  text-align: center;
+text-align: center;
 }
 
 /* Typography */
 .panel-content h2 {
-  font-size: 3rem;
-  margin-bottom: 0.6rem;
-  font-weight: 700;
+font-size: 3rem;
+margin-bottom: 0.6rem;
+font-weight: 700;
 }
 
 .panel-content h3 {
-  font-size: 1.4rem;
-  opacity: 0.95;
-  margin-bottom: 0.2rem;
+font-size: 1.4rem;
+opacity: 0.95;
+margin-bottom: 0.2rem;
 }
 
 .panel-content .college {
-  font-size: 1.1rem;
-  color: var(--muted);
-  margin-bottom: 1rem;
+font-size: 1.1rem;
+color: var(--muted);
+margin-bottom: 1rem;
 }
 
 .panel-content p {
-  font-size: 1.15rem;
-  color: var(--muted);
-  line-height: 1.55;
+font-size: 1.15rem;
+color: var(--muted);
+line-height: 1.55;
 }
 
 /* Panel Background Images */
 .panel-1 .panel-bg {
-  background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby.jpg');
+background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/baby.jpg');
 }
 .panel-2 .panel-bg {
-  background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growingup.png');
+background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/growingup.png');
 }
 .panel-3 .panel-bg {
-  background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/2.jpg');
+    background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/2.jpg');
 }
 
 /* EXPERIENCE TIMELINE */
@@ -132,9 +129,9 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .timeline-item:nth-child(even) .timeline-content { margin-right: auto; text-align: right; }
 
 @media (max-width: 768px) {
-  .timeline-line { left: 8px; }
-  .timeline-dot { left: 8px; transform: none; }
-  .timeline-content { width: calc(100% - 40px); margin: 0 0 0 40px; text-align: left; }
+.timeline-line { left: 8px; }
+.timeline-dot { left: 8px; transform: none; }
+.timeline-content { width: calc(100% - 40px); margin: 0 0 0 40px; text-align: left; }
 }
 
 /* HOBBIES */
@@ -164,7 +161,7 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 
 /* Responsive for hero and panels */
 @media (max-width: 900px) {
-  .big-name { font-size: 12vw; }
-  .panel { padding: 4rem 2rem; }
-  .panel-content { max-width: 85%; }
+.big-name { font-size: 12vw; }
+.panel { padding: 4rem 2rem; }
+.panel-content { max-width: 85%; }
 }
