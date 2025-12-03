@@ -85,9 +85,13 @@ ScrollTrigger.create({
 
 document.querySelectorAll(".slider").forEach((slider) => {
     const slides = slider.querySelector(".slides");
-    const items = slides.children;
+    const items = Array.from(slides.children).filter(item => item.tagName !== "SPAN"); 
     const prevBtn = slider.querySelector(".slide-prev");
     const nextBtn = slider.querySelector(".slide-next");
+
+    // Fix: Remove empty nodes or text nodes
+    slides.innerHTML = "";
+    items.forEach(item => slides.appendChild(item));
 
     let index = 0;
     const maxIndex = items.length - 1;
@@ -101,7 +105,7 @@ document.querySelectorAll(".slider").forEach((slider) => {
         interval = setInterval(() => {
             index = index === maxIndex ? 0 : index + 1;
             updateSlide();
-        }, 2500);
+        }, 10000);  // ✅ 10 seconds
     }
 
     function stopAutoSlide() {
@@ -124,8 +128,10 @@ document.querySelectorAll(".slider").forEach((slider) => {
         startAutoSlide();
     });
 
+    // Start autoplay
     startAutoSlide();
 });
+
 
 
 /* ZOOM POPUP */
