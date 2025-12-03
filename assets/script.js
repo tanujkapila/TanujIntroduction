@@ -90,43 +90,34 @@ document.querySelectorAll(".slider").forEach((slider) => {
     // Ensure each slide takes full width
     items.forEach(item => item.style.minWidth = "100%");
 
-    // Clean container and append items
+    // Clear container and append items
     slidesContainer.innerHTML = "";
     items.forEach(item => slidesContainer.appendChild(item));
 
-    // Clone first slide and append to end for seamless loop
+    // Clone first slide for seamless loop
     const firstClone = items[0].cloneNode(true);
     slidesContainer.appendChild(firstClone);
 
     let index = 0;
-    const total = items.length; // original slides count
+    const total = items.length;
     let interval;
 
-    function updateSlide() {
+    function goToSlide(idx) {
         slidesContainer.style.transition = "transform 0.5s ease-in-out";
-        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    function startAutoSlide() {
-        interval = setInterval(() => {
-            nextSlide();
-        }, 10000); // 10 seconds per slide
-    }
-
-    function stopAutoSlide() {
-        clearInterval(interval);
+        slidesContainer.style.transform = `translateX(-${idx * 100}%)`;
     }
 
     function nextSlide() {
         index++;
-        updateSlide();
+        goToSlide(index);
 
-        if(index > total - 1) { // reached clone
+        // If at clone, jump to first
+        if(index > total - 1) {
             setTimeout(() => {
                 slidesContainer.style.transition = "none";
                 index = 0;
                 slidesContainer.style.transform = `translateX(0%)`;
-            }, 500); // match transition duration
+            }, 500);
         }
     }
 
@@ -139,31 +130,28 @@ document.querySelectorAll(".slider").forEach((slider) => {
             setTimeout(() => {
                 slidesContainer.style.transition = "transform 0.5s ease-in-out";
                 index--;
-                updateSlide();
+                goToSlide(index);
             }, 20);
         } else {
             index--;
-            updateSlide();
+            goToSlide(index);
         }
     }
 
-    nextBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        stopAutoSlide();
-        nextSlide();
-        startAutoSlide();
-    });
+    function startAutoSlide() {
+        interval = setInterval(nextSlide, 10000);
+    }
 
-    prevBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        stopAutoSlide();
-        prevSlide();
-        startAutoSlide();
-    });
+    function stopAutoSlide() {
+        clearInterval(interval);
+    }
 
-    // Start autoplay
+    nextBtn.addEventListener("click", () => { stopAutoSlide(); nextSlide(); startAutoSlide(); });
+    prevBtn.addEventListener("click", () => { stopAutoSlide(); prevSlide(); startAutoSlide(); });
+
     startAutoSlide();
 });
+
 
 
 /* ZOOM POPUP */
