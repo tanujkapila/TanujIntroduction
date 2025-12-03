@@ -112,16 +112,6 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .panel-3 .panel-bg {
     background-image: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/2.jpg');
 }
-.badge-img {
-    width: 40px;      /* size of the badge */
-    height: 40px;
-    object-fit: cover;
-    border-radius: 50%; /* make it circular */
-    margin-bottom: 0.5rem;
-    border: 2px solid #fff; /* optional border */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* subtle shadow */
-}
-
 
 /* EXPERIENCE TIMELINE */
 .experience { position: relative; padding: 8rem 2rem; overflow: hidden; }
@@ -137,6 +127,18 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .timeline-content { position: relative; width: 45%; padding: 1.6rem; background: rgba(0,0,0,0.35); backdrop-filter: blur(3px); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
 .timeline-item:nth-child(odd) .timeline-content { margin-left: auto; text-align: left; }
 .timeline-item:nth-child(even) .timeline-content { margin-right: auto; text-align: right; }
+
+.timeline-badge {
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.badge-img {
+    width: 50px; /* adjust size */
+    height: 50px;
+    border-radius: 8px; /* optional: rounded corners */
+    object-fit: contain;
+}
 
 @media (max-width: 768px) {
   .timeline-line { left: 8px; }
