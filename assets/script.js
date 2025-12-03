@@ -94,7 +94,7 @@ document.querySelectorAll(".slider").forEach((slider) => {
     slidesContainer.innerHTML = "";
     items.forEach(item => slidesContainer.appendChild(item));
 
-    // Clone first slide and append to end
+    // Clone first slide and append to end for seamless loop
     const firstClone = items[0].cloneNode(true);
     slidesContainer.appendChild(firstClone);
 
@@ -109,42 +109,30 @@ document.querySelectorAll(".slider").forEach((slider) => {
 
     function startAutoSlide() {
         interval = setInterval(() => {
-            index++;
-            updateSlide();
-            // If we reach the clone, reset to first
-            if(index > total - 1) {
-                setTimeout(() => {
-                    slidesContainer.style.transition = "none";
-                    index = 0;
-                    slidesContainer.style.transform = `translateX(0%)`;
-                }, 500); // wait for transition to finish
-            }
-        }, 10000); // 10s per slide
+            nextSlide();
+        }, 10000); // 10 seconds per slide
     }
 
     function stopAutoSlide() {
         clearInterval(interval);
     }
 
-    nextBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        stopAutoSlide();
+    function nextSlide() {
         index++;
         updateSlide();
-        if(index > total - 1) {
+
+        if(index > total - 1) { // reached clone
             setTimeout(() => {
                 slidesContainer.style.transition = "none";
                 index = 0;
                 slidesContainer.style.transform = `translateX(0%)`;
-            }, 500);
+            }, 500); // match transition duration
         }
-        startAutoSlide();
-    });
+    }
 
-    prevBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        stopAutoSlide();
+    function prevSlide() {
         if(index === 0) {
+            // Jump to clone instantly
             slidesContainer.style.transition = "none";
             index = total;
             slidesContainer.style.transform = `translateX(-${index * 100}%)`;
@@ -157,22 +145,26 @@ document.querySelectorAll(".slider").forEach((slider) => {
             index--;
             updateSlide();
         }
+    }
+
+    nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        stopAutoSlide();
+        nextSlide();
         startAutoSlide();
     });
 
-    // Fix buttons visibility
-    [prevBtn, nextBtn].forEach(btn => {
-        btn.style.position = "absolute";
-        btn.style.top = "50%";
-        btn.style.transform = "translateY(-50%)";
-        btn.style.zIndex = "10";
+    prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        stopAutoSlide();
+        prevSlide();
+        startAutoSlide();
     });
-    prevBtn.style.left = "10px";
-    nextBtn.style.right = "10px";
 
     // Start autoplay
     startAutoSlide();
 });
+
 
 /* ZOOM POPUP */
 function openZoom(item) {
