@@ -80,3 +80,15 @@ ScrollTrigger.create({
     gsap.to(".hero-bg", { scale: v, overwrite: true, duration: 0.5 });
   }
 });
+
+document.querySelectorAll(".slider").forEach((slider) => {
+    const slides = slider.querySelector(".slides");
+    const items = slides.children;
+    let index = 0;
+
+    setInterval(() => {
+        index = (index + 1) % items.length;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+    }, 2500);
+});
+
