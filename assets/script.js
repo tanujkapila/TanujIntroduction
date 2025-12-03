@@ -90,6 +90,7 @@ document.querySelectorAll(".slider").forEach((slider) => {
     const nextBtn = slider.querySelector(".slide-next");
 
     let index = 0;
+    const maxIndex = items.length - 1;
     let interval;
 
     function updateSlide() {
@@ -98,38 +99,34 @@ document.querySelectorAll(".slider").forEach((slider) => {
 
     function startAutoSlide() {
         interval = setInterval(() => {
-            index = (index + 1) % items.length;
+            index = index === maxIndex ? 0 : index + 1;
             updateSlide();
         }, 2500);
     }
 
-    function resetAutoSlide() {
+    function stopAutoSlide() {
         clearInterval(interval);
-        startAutoSlide();
     }
 
-    // Buttons
-    nextBtn.addEventListener("click", () => {
-        index = (index + 1) % items.length;
+    nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        stopAutoSlide();
+        index = index === maxIndex ? 0 : index + 1;
         updateSlide();
-        resetAutoSlide();
+        startAutoSlide();
     });
 
-    prevBtn.addEventListener("click", () => {
-        index = (index - 1 + items.length) % items.length;
+    prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        stopAutoSlide();
+        index = index === 0 ? maxIndex : index - 1;
         updateSlide();
-        resetAutoSlide();
-    });
-
-    // CLICK TO ZOOM
-    Array.from(items).forEach((item) => {
-        item.addEventListener("click", () => {
-            openZoom(item);
-        });
+        startAutoSlide();
     });
 
     startAutoSlide();
 });
+
 
 /* ZOOM POPUP */
 function openZoom(item) {
