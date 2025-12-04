@@ -257,35 +257,48 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
     background: rgba(0,0,0,0.8);
 }
 
-/* ZOOM MODAL */
 .zoom-modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.85);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    cursor: zoom-out;
-    overflow: auto;
 }
 
-.zoom-content {
-    width: 90%;
-    max-width: 900px;
-    background: rgba(0,0,0,0.35);
-    backdrop-filter: blur(5px);
+.zoom-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.zoom-container img {
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    transform: scale(0.8);
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
-.zoom-modal.show .zoom-content {
-    transform: scale(1);
-    opacity: 1;
+/* navigation buttons */
+.zoom-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background: rgba(0,0,0,0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
 }
+
+.zoom-prev { left: -60px; }
+.zoom-next { right: -60px; }
+
 
 
 
