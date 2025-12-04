@@ -317,18 +317,33 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 
 .instagram-container {
     display: flex;
+    flex-direction: column; /* stack heading above sections */
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+
+.instagram-container .section-title {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.instagram-sections {
+    display: flex;
     justify-content: center;
-    gap: 40px; /* space between the two sections */
-    flex-wrap: wrap; /* allows wrapping on smaller screens */
+    gap: 40px;       /* space between the two sections */
+    flex-wrap: wrap; /* wrap on smaller screens */
 }
 
 .instagram-dynamic {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 350px; /* keep sections the same width */
+    max-width: 350px;
     text-align: center;
 }
+
 
 
 /* CTA */
