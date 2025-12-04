@@ -171,7 +171,7 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
     content: ''; 
     position: absolute; 
     inset: 0; 
-    background: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/hobbies-bg.jpg') 
+    background: url('https://raw.githubusercontent.com/tanujkapila/TanujIntroduction/main/assets/Images/IMG_8001.JPG')
         center/cover no-repeat; 
     filter: brightness(0.35) blur(3px); 
     transform: scale(1.12); 
