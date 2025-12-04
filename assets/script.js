@@ -154,7 +154,6 @@ document.querySelectorAll(".slider").forEach((slider) => {
 
 
 
-/* ZOOM POPUP */
 function openZoom(item) {
     const modal = document.createElement("div");
     modal.className = "zoom-modal";
@@ -163,12 +162,24 @@ function openZoom(item) {
     clone.classList.add("zoom-content");
 
     modal.appendChild(clone);
+    document.body.appendChild(modal);
 
-    modal.addEventListener("click", () => {
-        modal.remove();
+    // trigger animation after adding to DOM
+    requestAnimationFrame(() => {
+        modal.classList.add("show");
     });
 
-    document.body.appendChild(modal);
+    // close on click outside
+    modal.addEventListener("click", () => {
+        modal.classList.remove("show");
+        setTimeout(() => modal.remove(), 300); // wait for animation
+    });
 }
+
+// attach click to all tiles
+document.querySelectorAll('.tile').forEach(tile => {
+    tile.addEventListener('click', () => openZoom(tile));
+});
+
 
 
