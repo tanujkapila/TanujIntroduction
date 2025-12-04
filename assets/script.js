@@ -152,42 +152,94 @@ document.querySelectorAll(".slider").forEach((slider) => {
     startAutoSlide();
 });
 
-
-
 function openZoom(item) {
+    // get all images in this slider/tile
+    const images = Array.from(item.querySelectorAll("img"));
+    if (!images.length) return;
+
+    let currentIndex = 0;
+
     // create modal
     const modal = document.createElement("div");
     modal.className = "zoom-modal";
 
-    // create wrapper for zoom content
-    const wrapper = document.createElement("div");
-    wrapper.className = "zoom-content";
+    const container = document.createElement("div");
+    container.className = "zoom-container";
 
-    // clone the tile content
-    const clone = item.cloneNode(true);
+    const zoomImg = images[currentIndex].cloneNode(true);
+    container.appendChild(zoomImg);
+    modal.appendChild(container);
 
-    // reset slider widths (important if using flex)
-    clone.style.width = "100%";
-    clone.style.maxWidth = "100%";
+    // create navigation buttons
+    const prevBtn = document.createElement("div");
+    prevBtn.className = "zoom-nav zoom-prev";
+    prevBtn.innerHTML = "&#10094;"; // left arrow
+    container.appendChild(prevBtn);
 
-    wrapper.appendChild(clone);
-    modal.appendChild(wrapper);
+    const nextBtn = document.createElement("div");
+    nextBtn.className = "zoom-nav zoom-next";
+    nextBtn.innerHTML = "&#10095;"; // right arrow
+    container.appendChild(nextBtn);
+
     document.body.appendChild(modal);
 
-    // trigger animation
-    requestAnimationFrame(() => modal.classList.add("show"));
+    function updateImage() {
+        zoomImg.src = images[currentIndex].src;
+    }
 
-    // close on click
-    modal.addEventListener("click", () => {
-        modal.classList.remove("show");
-        setTimeout(() => modal.remove(), 300);
+    prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImage();
+    });
+
+    nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage();
+    });
+
+    // close on clicking outside image
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) modal.remove();
     });
 }
 
-// attach to tiles
-document.querySelectorAll(".tile").forEach(tile => {
-    tile.addEventListener("click", () => openZoom(tile));
-});
+
+// function openZoom(item) {
+//     // create modal
+//     const modal = document.createElement("div");
+//     modal.className = "zoom-modal";
+
+//     // create wrapper for zoom content
+//     const wrapper = document.createElement("div");
+//     wrapper.className = "zoom-content";
+
+//     // clone the tile content
+//     const clone = item.cloneNode(true);
+
+//     // reset slider widths (important if using flex)
+//     clone.style.width = "100%";
+//     clone.style.maxWidth = "100%";
+
+//     wrapper.appendChild(clone);
+//     modal.appendChild(wrapper);
+//     document.body.appendChild(modal);
+
+//     // trigger animation
+//     requestAnimationFrame(() => modal.classList.add("show"));
+
+//     // close on click
+//     modal.addEventListener("click", () => {
+//         modal.classList.remove("show");
+//         setTimeout(() => modal.remove(), 300);
+//     });
+// }
+
+// // attach to tiles
+// document.querySelectorAll(".tile").forEach(tile => {
+//     tile.addEventListener("click", () => openZoom(tile));
+// });
 
 
 
