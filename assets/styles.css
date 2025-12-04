@@ -350,22 +350,29 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
     }
 }
 
-/* MEET MY NIECE */
+/* MEET MY NIECE - Dark Theme */
 .meet-niece {
     padding: 4rem 2rem;
-    background: #f9f4f0;
+    background: rgba(0,0,0,0.35);        /* dark glassy background */
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
     text-align: center;
+    margin: 3rem auto;
+    max-width: var(--maxw);
+    color: var(--muted);
 }
 
 .meet-niece .section-title {
-    font-size: 2rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 0.5rem;
+    color: #fff;
 }
 
 .meet-niece .tagline {
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: #555;
+    color: var(--muted);
 }
 
 .niece-container {
@@ -382,7 +389,8 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
     height: 300px;
     object-fit: cover;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);  /* stronger shadow for dark bg */
+    border: 2px solid rgba(255,255,255,0.05);
     transition: transform 0.3s ease;
 }
 
@@ -398,10 +406,13 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
 .niece-text h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    color: #fff;
 }
 
 .niece-text p {
     font-size: 1rem;
-    color: #333;
+    color: var(--muted);
 }
+
+
 
