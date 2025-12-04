@@ -341,4 +341,67 @@ html, body { height: 100%; background: var(--bg); color: #fff; }
   .big-name { font-size: 12vw; }
   .panel { padding: 4rem 2rem; }
   .panel-content { max-width: 85%; }
+  .niece-container {
+        flex-direction: column;
+        text-align: center;
+    }
+  .niece-text {
+        text-align: center;
+    }
 }
+
+/* MEET MY NIECE */
+.meet-niece {
+    padding: 4rem 2rem;
+    background: #f9f4f0;
+    text-align: center;
+}
+
+.meet-niece .section-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.meet-niece .tagline {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.niece-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.niece-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.niece-img:hover {
+    transform: scale(1.05);
+}
+
+.niece-text {
+    max-width: 400px;
+    text-align: left;
+}
+
+.niece-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.niece-text p {
+    font-size: 1rem;
+    color: #333;
+}
+
