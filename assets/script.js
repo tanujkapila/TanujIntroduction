@@ -155,31 +155,40 @@ document.querySelectorAll(".slider").forEach((slider) => {
 
 
 function openZoom(item) {
+    // create modal
     const modal = document.createElement("div");
     modal.className = "zoom-modal";
 
-    const clone = item.cloneNode(true);
-    clone.classList.add("zoom-content");
+    // create wrapper for zoom content
+    const wrapper = document.createElement("div");
+    wrapper.className = "zoom-content";
 
-    modal.appendChild(clone);
+    // clone the tile content
+    const clone = item.cloneNode(true);
+
+    // reset slider widths (important if using flex)
+    clone.style.width = "100%";
+    clone.style.maxWidth = "100%";
+
+    wrapper.appendChild(clone);
+    modal.appendChild(wrapper);
     document.body.appendChild(modal);
 
-    // trigger animation after adding to DOM
-    requestAnimationFrame(() => {
-        modal.classList.add("show");
-    });
+    // trigger animation
+    requestAnimationFrame(() => modal.classList.add("show"));
 
-    // close on click outside
+    // close on click
     modal.addEventListener("click", () => {
         modal.classList.remove("show");
-        setTimeout(() => modal.remove(), 300); // wait for animation
+        setTimeout(() => modal.remove(), 300);
     });
 }
 
-// attach click to all tiles
-document.querySelectorAll('.tile').forEach(tile => {
-    tile.addEventListener('click', () => openZoom(tile));
+// attach to tiles
+document.querySelectorAll(".tile").forEach(tile => {
+    tile.addEventListener("click", () => openZoom(tile));
 });
+
 
 
 
