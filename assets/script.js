@@ -236,10 +236,10 @@ function openZoom(item) {
 //     });
 // }
 
-// // attach to tiles
-// document.querySelectorAll(".tile").forEach(tile => {
-//     tile.addEventListener("click", () => openZoom(tile));
-// });
+// attach to tiles
+document.querySelectorAll(".tile").forEach(tile => {
+    tile.addEventListener("click", () => openZoom(tile));
+});
 
 
 
